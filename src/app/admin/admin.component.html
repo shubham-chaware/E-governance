@@ -1,0 +1,58 @@
+<!-- <h1>Create New Story</h1>
+<div class="example-container">
+  <mat-form-field appearance="fill">
+    <mat-label>Enter Title</mat-label>
+    <input matInput  [formControl]="username" [(ngModel)]="v_username"required>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Story Description</mat-label>
+    <textarea type="password"   [formControl]="password" [(ngModel)]="v_password"required></textarea>
+  </mat-form-field>
+
+  <span class="err_msg" *ngIf="err_msg">{{err_msg.u + err_msg.p}}
+  </span>
+</div>
+
+<div>
+  <button class="ok-cancel" (click)="getErrorMessage(v_username,v_password)">Ok</button>
+  <button class="ok-cancel" >Cancel</button>
+</div> -->
+
+<div class="row">
+    <div class="col-12">
+       <div class="container-fluid">
+                <form #f = "ngForm">
+                    <h1 class="mt-2">Create New Story</h1>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Story Name</label>
+                        <input maxlength="100"  class="form-control" [formControl]="username" [(ngModel)]="v_username" id="exampleFormControlInput1">
+                        <div class="err_msg" *ngIf="err_msg">
+                            {{err_msg.u}}
+                          </div>
+                      </div>
+                      <!-- <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Story Description</label>
+                        <textarea  maxlength="1000" [formControl]="password" [(ngModel)]="v_password" class="form-control" id="exampleFormControlTextarea1" rows="7"></textarea>
+                        <div class="err_msg" *ngIf="err_msg">
+                            {{err_msg.p}}
+                        </div>  
+                      </div> -->
+                      <div class="NgxEditor__Wrapper">
+                        <!-- <ngx-editor-menu [editor]="editor"> </ngx-editor-menu> -->
+                        <ngx-editor
+                        [formControl]="password"
+                          [editor]="editor"
+                          [ngModel]="html"
+                          [placeholder]="'Type here...'"
+                          [(ngModel)]="v_password"
+                        ></ngx-editor>
+                        <div class="err_msg" *ngIf="err_msg">
+                          {{err_msg.p}}
+                      </div> 
+                      </div>
+                    <button type="submit" class="btn btn-primary" (click)="getErrorMessage(v_username,v_password,f)">Submit</button>
+                  </form>  
+        </div>
+    </div>
+</div>

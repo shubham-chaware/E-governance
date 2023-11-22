@@ -1,0 +1,51 @@
+ <div class="grid-container-b">
+  <div class="row mb-3">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <h1 style="display: inline;">Dashboard</h1> 
+      <button class="right-align" (click)="home()">Home</button>
+      <button class="right-align" style="margin-right: 2px;" (click)="openDialog('TempCall')">Add Post</button>
+    </div>
+  </div>
+  
+  
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-6 mb-2" *ngFor="let card of MyStories">
+      <div class="card">
+        <div class="card-body" >
+          <h5 class="card-title"> {{card.Title | slice:0:100}}</h5>
+          <p  [innerHTML]="card.description" class="card-text ellipse"></p>
+          <button class="btn btn-primary text-right" (click)="openVDialog(card.Title,card.description)">Read It</button>
+    
+          <button class="btn btn-danger text-right mr-2" (click)="openDialog(card.id)">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
+
+<!-- <mat-grid-list cols="2" rowHeight="350px">
+  <mat-grid-tile *ngFor="let card of MyStories" [colspan]="1" [rowspan]="1">
+    <mat-card class="dashboard-card">
+      <mat-card-header>
+        <mat-card-title>
+          {{card.Title}}
+          <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu" xPosition="before">
+            <button  (click)="openDialog(card.id)" mat-menu-item>Delete</button>
+          </mat-menu>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="dashboard-card-content">
+        <div>{{card.description | slice:0:100 }}
+          <span >...
+          </span> 
+        </div>
+        <div>              <button class="ok-cancel" (click)="openVDialog(card.Title,card.description)">Read It</button>
+        </div>
+        
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list> -->

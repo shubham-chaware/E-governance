@@ -1,0 +1,28 @@
+
+
+.example-container mat-form-field + mat-form-field {
+  margin-left: 8px;
+}
+
+.btn{
+  padding: 3px !important;
+  font-size: 10px !important;
+  float: right;
+  margin: 2px !important;
+}
+
+.grid-container-b{
+  padding: 10px;
+  overflow-x: hidden;
+}
+
+.ellipse{
+    // overflow: hidden;
+    // white-space: nowrap;
+    // text-overflow: ellipsis;
+    display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  color:#777
+}

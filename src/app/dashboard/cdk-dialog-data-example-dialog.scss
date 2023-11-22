@@ -1,0 +1,23 @@
+:host {
+    display: block;
+    background: #fff;
+    border-radius: 8px;
+    padding: 8px 16px 16px;
+  }
+  
+  input {
+    margin:0;
+  }
+  
+  button + button {
+    margin-left: 8px;
+  }
+
+  ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+    border-radius: 4px 4px 0 0 !important;
+    padding: 0 !important;
+    background-color: transparent !important;
+}
+
+
+  

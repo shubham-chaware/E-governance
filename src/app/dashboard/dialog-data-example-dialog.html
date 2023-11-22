@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>{{data.Story_Title}}</h1>
+<div mat-dialog-content>
+  <div [innerHTML]="data.Story_Des" style="overflow: auto;
+  max-height: 330px;"></div>
+</div>
+
+<div mat-dialog-actions>
+    <button class="ok-cancel" (click)="dialogref2.close()" >Close</button>
+  </div>

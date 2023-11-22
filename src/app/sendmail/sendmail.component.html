@@ -1,0 +1,53 @@
+<div class="row">
+    <div class="col-12">
+        <div class="container-fluid">
+            <form #c="ngForm">
+                <h1 class="mt-2">send compaint</h1>
+                <!-- Subject -->
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Subject</label>
+                    <input type="text" class="form-control" [formControl]="complaintsub" [(ngModel)]="name"
+                        id="exampleFormControlInput1">
+                </div>
+                <span *ngIf="complaintsub.invalid && (complaintsub.dirty || complaintsub.touched)"
+                    class="myalert alert-danger">
+
+                    <span *ngIf="complaintsub.errors?.['required']">
+                        Subject is required.
+                    </span>
+                    <span *ngIf="complaintsub.errors?.['maxlength']">
+                        Maximum 50 Charecters allowed.
+                    </span>
+                </span>
+
+                <!-- Mobile NUmber -->
+                <div class="mb-3">
+                    <label for="mnumber" class="form-label">Mobile</label>
+                    <input type="tel" class="form-control" [formControl]="complaintmb" [(ngModel)]="number"
+                        id="mnumber">
+                </div>
+
+                <!-- Details -->
+                <div class="NgxEditor__Wrapper">
+                    <!-- <ngx-editor-menu [editor]="editor"> </ngx-editor-menu> -->
+                    <ngx-editor  [formControl]="complainttxt" [editor]="editor" [(ngModel)]="html"
+                        [placeholder]="'Type here...'"></ngx-editor>
+                </div>
+                <span *ngIf="complainttxt.invalid && (complainttxt.dirty || complainttxt.touched)"
+                    class="myalert alert-danger">
+                    <span *ngIf="complainttxt.errors?.['maxlength']">
+                        Maximum 500 Charecters allowed.
+                    </span>
+                </span>
+
+                <!-- Attached File -->
+                <div class="mb-3 mt-3">
+                <input [formControl]="file" (change)="fileChange($event)" type="file" placeholder="File">
+              
+                <button type="button"  style="float: right;" [disabled]="complaintsub.pristine || complaintsub.invalid || complainttxt.invalid" type="submit" class="btn btn-primary mt-2"
+                    (click)="sendmail(name,number,html,c)">Send Mail</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

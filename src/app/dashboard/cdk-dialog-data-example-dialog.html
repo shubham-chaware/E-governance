@@ -1,0 +1,20 @@
+<h1>Verify As Admin</h1>
+<div class="example-container">
+  <mat-form-field appearance="fill">
+    <mat-label>Username</mat-label>
+    <input matInput  [formControl]="username" [(ngModel)]="v_username"required>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Password</mat-label>
+    <input type="password" matInput  [formControl]="password" [(ngModel)]="v_password"required>
+  </mat-form-field>
+
+  <div class="err_msg" *ngIf="err_msg">{{err_msg.u + err_msg.p}}
+  </div>
+</div>
+
+<div>
+  <button class="ok-cancel" (click)="getErrorMessage(v_username,v_password,data.is_delete)">Ok</button>
+  <button class="ok-cancel" (click)="dialogRef.close()">Cancel</button>
+</div>
